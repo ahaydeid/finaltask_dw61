@@ -5,9 +5,10 @@ import hbs from "hbs";
 import path from "path";
 
 app.set("view engine", "hbs");
-app.use("/assets", express.static("src/assets"));
-
 app.set("views", "src/views");
+hbs.registerPartials("src/views/partials");
+
+app.use("/assets", express.static("src/assets"));
 
 app.get("/", (req, res) => {
   res.render("index");

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "hbs": "^4.2.0",
+    "nodemon": "^3.1.10",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "type": "module",
+  "scripts": {
+    "p": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

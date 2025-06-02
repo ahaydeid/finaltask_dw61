@@ -22,6 +22,11 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
+// Sementara untuk keperluan desain UI nya dulu
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

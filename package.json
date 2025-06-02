@@ -2,6 +2,7 @@
   "dependencies": {
     "express": "^5.1.0",
     "hbs": "^4.2.0",
+    "multer": "^2.0.0",
     "nodemon": "^3.1.10",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
@@ -9,6 +10,25 @@
   "type": "module",
   "scripts": {
     "p": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "name": "finaltask",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {
+    "tailwindcss": "^4.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahaydeid/finaltask_dw61.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahaydeid/finaltask_dw61/issues"
+  },
+  "homepage": "https://github.com/ahaydeid/finaltask_dw61#readme",
+  "description": ""
 }

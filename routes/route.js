@@ -6,7 +6,7 @@ import { dashboard } from "../controllers/dashboardController.js";
 import { login } from "../controllers/loginController.js";
 import { register, handleRegister } from "../controllers/registerController.js";
 import { manageStack, stackHandler } from "../controllers/stackController.js";
-import { manageExperience } from "../controllers/experienceController.js";
+import { manageExperience, addExperience } from "../controllers/experienceController.js";
 import { manageProject } from "../controllers/projectController.js";
 
 const router = express.Router();
@@ -16,7 +16,6 @@ router.get("/login", login);
 router.get("/register", register);
 router.post("/register", handleRegister);
 router.get("/managestack", manageStack);
-
 // Upload stack-icon dan routernya
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -29,11 +28,12 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-
-// Route Manage Stack
+// Route untuk add stack
 router.post("/managestack", upload.single("stack-icon"), stackHandler);
 
 router.get("/manageexperience", manageExperience);
+router.get("/addexperience", addExperience);
+
 router.get("/manageproject", manageProject);
 
 // Sementara untuk keperluan desain UI nya dulu

@@ -13,7 +13,7 @@ table, th, td {
     {{> navbarAdmin}}
 
     <h1 class="text-black mt-[100px] flex justify-center text-3xl font-bold">MANAGE STACK</h1>
-    <div class="container w-3xl ms-3 p-5 bg-white mt-20">
+    <div class="container w-3xl ms-3 p-5 bg-white mt-20 justify-self-center">
       <form action="" class="bg-white h-20 flex items-center mb-3" enctype="multipart/form-data" method="post">
         <div class="upload items-center flex">
         <input name="stack-icon" class="h-10 me-1 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" id="file_input" type="file">
@@ -33,9 +33,13 @@ table, th, td {
                 <td class="text-center">{{ increment @index }}</td>
                 <td class=""><img src="/assets/tech/{{ this.icon_tech }}" class="w-10" alt=""></td>
                 <td class="">{{ this.name_tech }}</td>
-                <td class="text-center">
+                <td class="text-center flex">
+                  <form action="/edit" >
                     <button class="px-3 bg-yellow-500 m-1 text-white cursor-pointer">Edit</button>
+                  </form>
+                  <form action="">
                     <button  class="px-3 bg-red-700 m-1 text-white cursor-pointer">Delete</button>
+                  </form>
                 </td>
             </tr>
             {{/each}}

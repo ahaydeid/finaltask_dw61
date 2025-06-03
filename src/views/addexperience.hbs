@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head }}
+      <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body class="bg-blue-50">
+    {{> navbarAdmin }}
+
+    <h1 class="text-black mt-[100px] flex justify-center text-3xl font-bold">MANAGE EXPERIENCE</h1>
+    <div class="container w-6xl ms-3 h-200 justify-self-center p-5 bg-white mt-20">
+      <form action="/submit-experience" enctype="multipart/form-data" class="bg-white h-20 mb-3">
+        <label for="tittle"></label>
+        <input class="" name="tittle" id="tittle" type="text">
+
+
+
+        <button class="bg-blue-500 h-10 flex py-2 px-3 font-bold ms-3 text-white rounded-2xl">Add Experience +</button>
+      </form>
+    </div>
+
+    {{> footer}}
+</body>
+</html>

@@ -2,12 +2,29 @@
   <head>
     {{> head }}
   </head>
-  <body>
+  <body class="bg-blue-50">
     {{> navbarAdmin }}
 
-
-
-
+      <h1 class="text-black mt-[100px] flex justify-center text-3xl font-bold">ADMIN DASHBOARD</h1>
+      <div class="container flex justify-center">
+        <div class="summary">
+          <h3 class="font-bold text-2xl mt-20 mb-5">Kamu memiliki:</h3>
+          <table>
+            <tr>
+              <td><h5 class="font-bold text-gray-600">Technology Skills:</h5></td>
+              <td><button class="text-white font-semibold bg-green-600 ms-3 my-1 py-1 px-3 rounded-xl"> 11</button></td>
+            </tr>
+            <tr>
+              <td><h5 class="font-bold text-gray-600">Experiences:</h5></td>
+              <td><button class="text-white font-semibold bg-green-600 ms-3 my-1 py-1 px-3 rounded-xl"> 3</button></td>
+            </tr>
+            <tr>
+              <td><h5 class="font-bold text-gray-600">Projects:</h5></td>
+              <td><button class="text-white font-semibold bg-green-600 ms-3 my-1 py-1 px-3 rounded-xl"> 7</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
     {{> footer }}
   </body>

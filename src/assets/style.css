@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@tailwind utilities;
+
 .marquee {
   overflow: hidden;
   white-space: nowrap;

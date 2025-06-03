@@ -5,12 +5,17 @@ import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { login } from "../controllers/loginController.js";
 import { register } from "../controllers/registerController.js";
+import { manageStack } from "../controllers/stackController.js";
+import { manageExperience } from "../controllers/experienceController.js";
 
 const router = express.Router();
 
 router.get("/", home);
 router.get("/login", login);
 router.get("/register", register);
+router.get("/managestack", manageStack);
+router.get("/manageexperience", manageExperience);
+
 // Sementara untuk keperluan desain UI nya dulu
 router.get("/dashboard", dashboard);
 

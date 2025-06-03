@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head}}
+  <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body class="bg-blue-50">
+    {{> navbarAdmin}}
+
+    <h1 class="text-black mt-[100px] flex justify-center text-3xl font-bold">MANAGE PROJECTS</h1>
+    <div class="container w-6xl ms-3 h-200 p-5 bg-white mt-20">
+      <form action="" class="bg-white h-20 flex items-center mb-3">
+        <button class="bg-blue-500 h-10 flex py-2 px-3 font-bold ms-3 text-white rounded-2xl">Add Project +</button>
+      </form>
+            <table class="w-full">
+            <tr>
+                <th class="w-[20px]">No.</th>
+                <th class="w-[100px]">Name</th>
+                <th class="w-[100px]">Description</th> 
+                <th class="w-[150px]">Tech Use</th> 
+                <th class="w-[20px]">Github Link</th> 
+                <th class="w-[10px]">Demo Link</th> 
+                <th class="w-[50px]">Image</th> 
+                <th class="w-[150px]">Action</th>
+            </tr>
+            <tr class="">
+                <td class="text-center">1</td>
+                <td class="">Fakturly</td>
+                <td class="">Digital Invoice blaa.. blaa...</td>
+                <td class="">JavaScript, React, Node.js, Express, PostgreSQL</td>
+                <td class="">https://github.io</td>
+                <td class="">https://demo.fakturly.com</td>
+                <td class=""><img src="../assets/icon/account.png" class="w-10" alt=""></td>
+                <td class="text-center">
+                    <button class="px-3 bg-yellow-500 m-1 text-white cursor-pointer">Edit</button>
+                    <button  class="px-3 bg-red-700 m-1 text-white cursor-pointer">Delete</button>
+                </td>
+            </tr>
+            </tr>
+            </table>
+            </div>
+
+
+    {{> footer}}
+</body>
+</html>

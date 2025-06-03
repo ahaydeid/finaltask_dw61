@@ -14,11 +14,12 @@ table, th, td {
 
     <h1 class="text-black mt-[100px] flex justify-center text-3xl font-bold">MANAGE STACK</h1>
     <div class="container w-3xl ms-3 h-200 p-5 bg-white mt-20">
-      <form action="" class="bg-white h-20 flex items-center mb-3">
+      <form action="" class="bg-white h-20 flex items-center mb-3" enctype="multipart/form-data" method="post">
         <div class="upload items-center flex">
-        <input class="block h-10 w-sm text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" id="file_input" type="file">
+        <input name="stack-icon" class="h-10 me-1 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none" id="file_input" type="file">
+        <input name="name_stack" class="h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:text-gray-400 focus:outline-none" id="name_stack" type="text">
         </div>
-        <button class="bg-blue-500 h-10 flex py-2 px-3 font-bold ms-3 text-white rounded-2xl">Add +</button>
+        <button class="bg-blue-500 h-10 flex py-2 px-3 font-bold ms-3 text-white rounded-2xl cursor-pointer hover:bg-blue-700">Add +</button>
       </form>
             <table class="w-full">
             <tr>
@@ -32,13 +33,13 @@ table, th, td {
                 <td class=""><img src="../assets/icon/account.png" class="w-10" alt=""></td>
                 <td class="">HTML</td>
                 <td class="text-center">
-                    <button class="px-3 bg-yellow-500 m-1 text-white">Edit</button>
-                    <button  class="px-3 bg-red-700 m-1 text-white">Delete</button>
+                    <button class="px-3 bg-yellow-500 m-1 text-white cursor-pointer">Edit</button>
+                    <button  class="px-3 bg-red-700 m-1 text-white cursor-pointer">Delete</button>
                 </td>
             </tr>
             </tr>
             </table>
-            </div>
+    </div>
 
 
     {{> footer}}

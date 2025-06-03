@@ -48,95 +48,18 @@
       <h1 class="font-bold text-3xl">Tech Stack - Tools I Use Everyday</h1>
         <div class="marquee pt-20">
           <div class="marquee-content flex space-x-18">
-          <button class="logo">
-            <img src="assets/icon/tech/react.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>React</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/next.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Next.js</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/tailwind.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Tailwind</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/node.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Node.js</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/express.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Express.js</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/typescript.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>TypeScript</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/js.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>JavaScript</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/postgree.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>PostgreeSQL</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/mongodb.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>MongoDB</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/net.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>.NET</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/unity.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Unity</h6>
-          </button>
-            <!-- Repeat Kedua -->
-            <button class="logo">
-            <img src="assets/icon/tech/react.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>React</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/next.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Next.js</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/tailwind.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Tailwind</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/node.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Node.js</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/express.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Express.js</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/typescript.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>TypeScript</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/js.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>JavaScript</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/postgree.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>PostgreeSQL</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/mongodb.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>MongoDB</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/net.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>.NET</h6>
-          </button>
-          <button class="logo">
-            <img src="assets/icon/tech/unity.png" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
-            <h6>Unity</h6>
-          </button>
+            {{#each hasil }}              
+              <button class="logo">
+                <img src="assets/tech/{{ this.icon_tech }}" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
+                <h6>{{ this.name_tech }}</h6>
+              </button>
+            {{/each}}
+            {{#each hasil }}              
+              <button class="logo">
+                <img src="assets/tech/{{ this.icon_tech }}" alt="" class="size-17 shadow-xs p-3 hover:shadow-lg rounded-md mb-3 transition duration-700" />
+                <h6>{{ this.name_tech }}</h6>
+              </button>
+            {{/each}}
           </div>
         </div>
       </div>

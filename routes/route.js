@@ -5,7 +5,7 @@ import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { login } from "../controllers/loginController.js";
 import { register, handleRegister } from "../controllers/registerController.js";
-import { manageStack } from "../controllers/stackController.js";
+import { manageStack, stackHandler } from "../controllers/stackController.js";
 import { manageExperience } from "../controllers/experienceController.js";
 import { manageProject } from "../controllers/projectController.js";
 
@@ -20,19 +20,18 @@ router.get("/managestack", manageStack);
 // Upload stack-icon dan routernya
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/stack");
+    // cb(null, "uploads/stack");
+    cb(null, "src/assets/tech");
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
+    // cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, file.originalname);
   },
 });
 const upload = multer({ storage: storage });
-router.post("/managestack", upload.single("stack-icon"), (req, res) => {
-  const foto = req.file ? req.file.filename : null;
-  const name_stack = req.body.name_stack;
-  console.log({ foto, name_stack });
-  res.redirect("/managestack");
-});
+
+// Route Manage Stack
+router.post("/managestack", upload.single("stack-icon"), stackHandler);
 
 router.get("/manageexperience", manageExperience);
 router.get("/manageproject", manageProject);

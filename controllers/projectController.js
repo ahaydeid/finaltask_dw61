@@ -17,6 +17,7 @@ export function addProject(req, res) {
 }
 
 // ======== CREATE DATA ======== //
+// SETUP MULTER
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/project");
@@ -43,6 +44,7 @@ export const projectHandler = async (req, res) => {
   res.redirect("/manageproject");
 };
 
+// ======== DELETE DATA ======== //
 export const deleteProject = async (req, res) => {
   const id = req.params.id;
   const sql = `DELETE FROM public.project WHERE id = ${id}`;

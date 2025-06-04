@@ -2,7 +2,7 @@ import express from "express";
 import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { login } from "../controllers/loginController.js";
-import { register, handleRegister } from "../controllers/registerController.js";
+import { register, registerHandler, upload4 } from "../controllers/registerController.js";
 import { manageStack, stackHandler, editStack, updateStack, deleteStack, upload } from "../controllers/stackController.js";
 import { manageExperience, addExperience, experienceHandler, deleteExperience, upload2 } from "../controllers/experienceController.js";
 import { manageProject, addProject, deleteProject, projectHandler, upload3 } from "../controllers/projectController.js";
@@ -11,8 +11,10 @@ const router = express.Router();
 
 router.get("/", home);
 router.get("/login", login);
+
+// MANAGE REGISTER
 router.get("/register", register);
-router.post("/register", handleRegister);
+router.post("/register", upload4.single("profile-photo"), registerHandler);
 
 // Sementara untuk keperluan desain UI nya dulu
 router.get("/dashboard", dashboard);

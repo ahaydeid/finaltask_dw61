@@ -2,9 +2,6 @@ import express from "express";
 const app = express();
 const port = 3000;
 import hbs from "hbs";
-import path from "path";
-import multer from "multer";
-const upload = multer({ dest: "uploads/" });
 import router from "./routes/route.js";
 
 //membuat nomor index menjadi increment

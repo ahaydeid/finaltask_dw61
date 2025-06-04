@@ -5,6 +5,12 @@ export function login(req, res) {
   res.render("login", { message: req.flash("error") });
 }
 
+export function logout(req, res) {
+  req.session.destroy(() => {
+    res.redirect("/login");
+  });
+}
+
 export const handleLogin = async (req, res) => {
   const { email, password } = req.body;
   const isRegistered = await db.query(`SELECT * FROM public.user WHERE email='${email}'`);

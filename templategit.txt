@@ -1,1 +1,1 @@
-git commit -m 'Rabu, 4 Juni 2025 (Sesi 2): "Create, Read dan Delete (Experience&Project)  sudah selesai"'
+git commit -m 'Kamis, 5 Juni 2025 (Sesi 2): "Register, Login, dan CRD lainnya sudah selesai, tinggal updatenya saja"'

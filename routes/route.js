@@ -2,7 +2,7 @@ import express from "express";
 import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { ensureAuthenticated } from "../middleware/auth.js";
-import { login, handleLogin } from "../controllers/loginController.js";
+import { login, logout, handleLogin } from "../controllers/loginController.js";
 import { register, registerHandler, upload4 } from "../controllers/registerController.js";
 import { manageStack, stackHandler, editStack, updateStack, deleteStack, upload } from "../controllers/stackController.js";
 import { manageExperience, addExperience, experienceHandler, deleteExperience, upload2 } from "../controllers/experienceController.js";
@@ -16,11 +16,7 @@ router.get("/", home);
 router.get("/login", login);
 router.post("/login", handleLogin);
 
-router.get("/logout", (req, res) => {
-  req.session.destroy(() => {
-    res.redirect("/login");
-  });
-});
+router.get("/logout", logout);
 
 // MANAGE REGISTER
 router.get("/register", register);

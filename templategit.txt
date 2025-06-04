@@ -1,1 +1,1 @@
-git commit -m 'Kamis, 5 Juni 2025 (Sesi 2): "Register, Login, dan CRD lainnya sudah selesai, tinggal updatenya saja"'
+git commit -m 'Kamis, 5 Juni 2025 (Sesi 2): "Hari ini sampai sini dulu, niat mau tidur awal karena besok presentasi, malah begadang karena susah tidur kepikiran besok"'

@@ -40,7 +40,7 @@ table, th, td {
                 <td class="truncate whitespace-nowrap overflow-hidden max-w-[60px]">{{ this.end_date }}</td>
                 <td class="truncate whitespace-nowrap overflow-hidden max-w-[50px]"><img src="../../uploads/experience/{{ this.image }}" class="w-10" alt=""></td>
                 <td class="text-center max-w[100px]">
-                  <a href="">
+                  <a href="/editexperience/{{ this.id }}">
                     <button class="px-3 bg-yellow-500 m-1 text-white cursor-pointer">Edit</button>
                   </a>
                     <form action="/delete-experience/{{ this.id }}" method="post"  onsubmit="return confirm('Yakin mau dihapus?')">

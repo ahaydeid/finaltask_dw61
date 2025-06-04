@@ -1,11 +1,11 @@
 import express from "express";
 import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
-import { ensureAuthenticated } from "../auth/auth.js";
+import { logged } from "../auth/auth.js";
 import { login, logout, handleLogin } from "../controllers/loginController.js";
 import { register, registerHandler, upload4 } from "../controllers/registerController.js";
 import { manageStack, stackHandler, editStack, updateStack, deleteStack, upload } from "../controllers/stackController.js";
-import { manageExperience, addExperience, experienceHandler, deleteExperience, upload2 } from "../controllers/experienceController.js";
+import { manageExperience, addExperience, experienceHandler, deleteExperience, upload2, editExperience } from "../controllers/experienceController.js";
 import { manageProject, addProject, deleteProject, projectHandler, upload3 } from "../controllers/projectController.js";
 
 const router = express.Router();
@@ -22,25 +22,27 @@ router.get("/logout", logout);
 router.get("/register", register);
 router.post("/register", upload4.single("profile-photo"), registerHandler);
 
-// Sementara untuk keperluan desain UI nya dulu
-router.get("/dashboard", ensureAuthenticated, dashboard);
+// TO DASHBOARD MUST BE LOGIN
+router.get("/dashboard", logged, dashboard);
 
 // MANAGE TECH STACK
-router.get("/managestack", manageStack);
+router.get("/managestack", logged, manageStack);
 router.post("/managestack", upload.single("stack-icon"), stackHandler);
-router.get("/editstack/:id", editStack);
+router.get("/editstack/:id", logged, editStack);
 router.post("/update-stack", upload.single("stack-icon"), updateStack);
 router.post("/delete-stack/:id", deleteStack);
 
 // MANAGE EXPERIENCE
-router.get("/manageexperience", manageExperience);
-router.get("/addexperience", addExperience);
+router.get("/manageexperience", logged, manageExperience);
+router.get("/addexperience", logged, addExperience);
 router.post("/addexperience", upload2.single("comp-image"), experienceHandler);
+router.get("/editexperience/:id", logged, editExperience);
+// router.post("/update-stack", upload.single("stack-icon"), updateStack);
 router.post("/delete-experience/:id", deleteExperience);
 
 // MANAGE PROJECT
-router.get("/manageproject", manageProject);
-router.get("/addproject", addProject);
+router.get("/manageproject", logged, manageProject);
+router.get("/addproject", logged, addProject);
 router.post("/addproject", upload3.single("project-image"), projectHandler);
 router.post("/delete-project/:id", deleteProject);
 

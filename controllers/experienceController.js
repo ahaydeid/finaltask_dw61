@@ -61,6 +61,15 @@ export const experienceHandler = async (req, res) => {
   res.redirect("/manageexperience");
 };
 
+// ======== ALIHKAN KE HALAMAN UPDATE DATA ======== //
+export const editExperience = async (req, res) => {
+  const id = req.params.id;
+  const data = await db.query(`SELECT * FROM experience WHERE id='${id}'`);
+  // console.log(data);
+
+  res.render("editexperience", { hasil: data.rows[0] });
+};
+
 // ========DELETE DATA ======== //
 export const deleteExperience = async (req, res) => {
   const id = req.params.id;

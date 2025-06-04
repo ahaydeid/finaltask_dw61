@@ -1,4 +1,4 @@
-export function ensureAuthenticated(req, res, next) {
+export function logged(req, res, next) {
   if (req.session.user) {
     return next();
   }

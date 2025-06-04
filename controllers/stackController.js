@@ -1,6 +1,7 @@
 import db from "../model/connection.js";
 import multer from "multer";
 
+// ======== READ DATA ======== //
 export const manageStack = async (req, res) => {
   const data = await db.query("SELECT * FROM techstack ORDER BY id DESC");
   res.render("managestack", { hasil: data.rows });
@@ -18,6 +19,7 @@ const storage = multer.diskStorage({
 });
 export const upload = multer({ storage: storage });
 
+// ======== CREATE DATA ======== //
 export const stackHandler = async (req, res) => {
   const foto = req.file ? req.file.filename : null;
   const name_stack = req.body.name_stack;
@@ -27,6 +29,7 @@ export const stackHandler = async (req, res) => {
   res.redirect("/managestack");
 };
 
+// ======== ALIHKAN KE HALAMAN EDIT ======== //
 export const editStack = async (req, res) => {
   const id = req.params.id;
   const data = await db.query(`SELECT * FROM techstack WHERE id='${id}'`);
@@ -35,6 +38,7 @@ export const editStack = async (req, res) => {
   res.render("editstack", { hasil: data.rows[0] });
 };
 
+// ======== UPDATE DATA ======== //
 export const updateStack = async (req, res) => {
   const foto = req.file ? req.file.filename : null;
   const { id, name_stack } = req.body;
@@ -51,6 +55,7 @@ export const updateStack = async (req, res) => {
   res.redirect("/managestack");
 };
 
+// ======== DELETE DATA ======== //
 export const deleteStack = async (req, res) => {
   const id = req.params.id;
   const sql = `DELETE FROM public.techstack WHERE id = ${id}`;

@@ -4,7 +4,7 @@ import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { login } from "../controllers/loginController.js";
 import { register, handleRegister } from "../controllers/registerController.js";
-import { manageStack, stackHandler } from "../controllers/stackController.js";
+import { manageStack, stackHandler, editStack, updateStack, deleteStack } from "../controllers/stackController.js";
 import { manageExperience, addExperience } from "../controllers/experienceController.js";
 import { manageProject, addProject } from "../controllers/projectController.js";
 
@@ -29,6 +29,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 // Route untuk add stack
 router.post("/managestack", upload.single("stack-icon"), stackHandler);
+// Route untuk edit stack
+router.get("/editstack/:id", editStack);
+router.post("/update-stack", upload.single("stack-icon"), updateStack);
+router.post("/delete/:id", deleteStack);
+
+// router.post("/editstack");
 
 router.get("/manageexperience", manageExperience);
 router.get("/addexperience", addExperience);

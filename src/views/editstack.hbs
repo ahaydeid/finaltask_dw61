@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head}}
+  <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body class="bg-blue-50">
+    {{> navbarAdmin}}
+
+    <h1 class="text-black mt-[100px] flex justify-center text-3xl font-bold">EDIT STACK</h1>
+    <div class="container w-3xl ms-3 p-10 bg-white mt-20 justify-self-center">
+      <form action="/update-stack" class="bg-white h-20 flex items-center mb-3" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="id" value="{{ hasil.id }}">
+        <div class="upload items-center flex gap-3">
+        <input value="{{ hasil.name_tech }}" name="name_stack" class="text-center w-60 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:text-gray-400 focus:outline-none" id="name_stack" type="text" placeholder="Techstack Name">
+        <input name="stack-icon" class="w-55 h-10 me-1 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="file_input" type="file">
+        </div>
+        <button type="submit" class="bg-blue-500 h-10 flex py-2 px-4 font-bold ms-3 text-white rounded-2xl cursor-pointer hover:bg-blue-700">Edit Techstack</button>
+      </form>
+    </div>
+
+
+    {{> footer}}
+</body>
+</html>

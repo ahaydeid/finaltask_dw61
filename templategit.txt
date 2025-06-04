@@ -1,1 +1,1 @@
-git commit -m 'Rabu, 4 Juni 2025 (Sesi pagi): "Update pagi"'
+git commit -m 'Rabu, 4 Juni 2025 (Sesi pagi): "Update pagi, CRUD stack sudah semua"'

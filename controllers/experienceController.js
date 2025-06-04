@@ -2,6 +2,7 @@ import db from "../model/connection.js";
 import multer from "multer";
 import path from "path";
 
+// ======== READ DATA ======== //
 export const manageExperience = async (req, res) => {
   const result = await db.query("SELECT * FROM experience ORDER BY id DESC");
   const data = result.rows.map((item) => ({
@@ -20,11 +21,13 @@ export const manageExperience = async (req, res) => {
   res.render("manageexperience", { hasilexperience: data });
 };
 
+// ======== ALIHKAN KE CREATE DATA ======== //
 export const addExperience = async (req, res) => {
   res.render("addexperience");
 };
 
-const storage2 = multer.diskStorage({
+// ======== CREATE DATA ======== //
+const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/experience");
   },
@@ -32,7 +35,7 @@ const storage2 = multer.diskStorage({
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
-export const upload2 = multer({ storage: storage2 });
+export const upload2 = multer({ storage: storage });
 
 export const experienceHandler = async (req, res) => {
   const foto = req.file ? req.file.filename : null;
@@ -44,8 +47,8 @@ export const experienceHandler = async (req, res) => {
   }
   jobdescs = jobdescs.filter((item) => item && item.trim() !== ""); // Hapus nilai kosong supaya gak error
   const jobdescsArray = `'{${jobdescs.map((item) => `"${item}"`).join(",")}}'`;
-  let techstacks = req.body.techstack;
 
+  let techstacks = req.body.techstack;
   // Ubah techstacks jadi array
   if (!Array.isArray(techstacks)) {
     techstacks = [techstacks]; // kalau cuma 1 input yang diisi
@@ -58,6 +61,7 @@ export const experienceHandler = async (req, res) => {
   res.redirect("/manageexperience");
 };
 
+// ========DELETE DATA ======== //
 export const deleteExperience = async (req, res) => {
   const id = req.params.id;
   const sql = `DELETE FROM public.experience WHERE id = ${id}`;

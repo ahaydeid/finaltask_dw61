@@ -1,7 +1,8 @@
 import express from "express";
 import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
-import { login } from "../controllers/loginController.js";
+import { ensureAuthenticated } from "../middleware/auth.js";
+import { login, handleLogin } from "../controllers/loginController.js";
 import { register, registerHandler, upload4 } from "../controllers/registerController.js";
 import { manageStack, stackHandler, editStack, updateStack, deleteStack, upload } from "../controllers/stackController.js";
 import { manageExperience, addExperience, experienceHandler, deleteExperience, upload2 } from "../controllers/experienceController.js";
@@ -10,14 +11,23 @@ import { manageProject, addProject, deleteProject, projectHandler, upload3 } fro
 const router = express.Router();
 
 router.get("/", home);
+
+// MANAGE LOGIN
 router.get("/login", login);
+router.post("/login", handleLogin);
+
+router.get("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/login");
+  });
+});
 
 // MANAGE REGISTER
 router.get("/register", register);
 router.post("/register", upload4.single("profile-photo"), registerHandler);
 
 // Sementara untuk keperluan desain UI nya dulu
-router.get("/dashboard", dashboard);
+router.get("/dashboard", ensureAuthenticated, dashboard);
 
 // MANAGE TECH STACK
 router.get("/managestack", manageStack);

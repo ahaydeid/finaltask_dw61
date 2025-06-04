@@ -30,20 +30,21 @@ table, th, td {
                 <th class="">Action</th>
             </tr>
             <tr class="">
+              {{#each hasil }}
                 <td class="text-center">1</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">Mentor Full Stack Web Developer</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">DumbWays Indonesia</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[150px]">Mentoring student in Full Stack Development Bootcamp</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[150px]">JavaScript, React, Node.js, Express, PostgreSQL</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[60px]">11/2020</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[60px]">11/2024</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[50px]"><img src="../assets/icon/account.png" class="w-10" alt=""></td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">{{ this.tittle }}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">{{ this.company }}</td>
+                <td class="">{{ this.jobdesc }}</td>
+                <td class="">{{ this.tech_use }}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[60px]">{{ this.start_date }}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[60px]">{{ this.end_date }}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[50px]"><img src="../assets/icon/{{ this.image }}" class="w-10" alt=""></td>
                 <td class="text-center max-w[100px]">
                     <button class="px-3 bg-yellow-500 m-1 text-white">Edit</button>
                     <button  class="px-3 bg-red-700 m-1 text-white">Delete</button>
                 </td>
             </tr>
-            </tr>
+              {{/each}}
             </table>
             </div>
 

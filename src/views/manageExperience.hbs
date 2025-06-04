@@ -31,7 +31,7 @@ table, th, td {
             </tr>
             <tr class="">
               {{#each hasilexperience }}
-                <td class="text-center">1</td>
+                <td class="text-center">{{ increment @index }}</td>
                 <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">{{ this.tittle }}</td>
                 <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">{{ this.company }}</td>
                 <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">{{ this.jobdesc }}</td>

@@ -9,6 +9,7 @@ export const home = async (req, res) => {
   try {
     const techData = await db.query(`SELECT * FROM public.techstack ORDER BY id ASC`);
     const expResult = await db.query("SELECT * FROM experience ORDER BY id DESC");
+    const proResult = await db.query("SELECT * FROM project ORDER BY id DESC");
 
     const experienceData = expResult.rows.map((item) => ({
       ...item,
@@ -24,9 +25,15 @@ export const home = async (req, res) => {
       }),
     }));
 
+    const projectData = proResult.rows.map((item) => ({
+      ...item,
+      tech_use: item.tech_use || [], // jaga-jaga kalau null
+    }));
+
     res.render("index", {
       hasil: techData.rows, // untuk tabel techstack
       hasilexperience: experienceData, // untuk tabel experience
+      hasilproject: projectData, // untuk tabel project
     });
   } catch (error) {
     console.error(error);

@@ -14,8 +14,8 @@
           </div>
           <div class="content w-7/12 ms-25">
             <h1 class="text-6xl font-bold">Hi, I'm Ahadi 👋</h1>
-            <h2 class="text-2xl font-semibold mt-5 text-gray-600">Indie Hacker & Full-Stack Developer</h2>
-            <p class="text-base font-normal mt-5 text-gray-700">
+            <h2 class="text-2xl font-semibold mt-6 text-gray-600">Indie Hacker & Full-Stack Developer</h2>
+            <p class="text-lg font-normal mt-6 text-gray-600">
               I build and ship digital products from scratch to production. Passionate about creating end-to-end solutions and turning ideas into fully functional applications. With expertise in both frontend and backend development, I
               handle everything from initial concept to deployment and maintenance.
             </p>
@@ -23,7 +23,7 @@
               <img src="assets/icon/map.png" alt="" class="w-6" />
               <h1 class="flex items-center ms-2 text-gray-500">Depok, Sawangan, Indonesia</h1>
             </div>
-            <div class="mt-1 flex">
+            <div class="mt-2 flex">
               <img src="assets/icon/dot.png" alt="" class="w-6" />
               <h1 class="flex items-center ms-1 text-gray-500">Available for new projects</h1>
             </div>
@@ -163,29 +163,29 @@
       <section id="my-project" class="pt-30">
         <h1 class="font-bold text-3xl">My Projects:</h1>
         <div class="grid grid-cols-2  space-x-8">
+          {{#each hasilproject }}
           <!-- Fakturly -->
             <div class="bg-white rounded-xl shadow-xs hover:shadow-md mt-15">
               <div class="bg-gray-100 justify-center flex rounded-t-xl">
                 <a href="#">
-                    <img class="h-50" src="assets/img/fakturly.png" alt="" />
+                    <img class="h-50" src="../../uploads/project/{{this.image}}" alt="" />
                 </a>
               </div>
                 <div class="p-8 space-x-4">
-                    <h5 class="mb-2 text-xl font-medium tracking-tight text-gray-900">Fakturly</h5>
-                    <p class="mb-3 font-normal text-sm text-gray-600">Digital invoice and payment reminder solution that makes billing management easier. Built with modern tech stack for optimal performance.</p>
-                              <div class="space-x-1 pt-2 text-xs text-gray-600">
-                              <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">Next.js</span>
-                              <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">TypeScript</span>
-                              <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">Node.js</span>
-                              <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">Tailwind</span>
+                    <h5 class="mb-2 text-xl font-medium tracking-tight text-gray-900">{{this.name}}</h5>
+                    <p class="mb-3 font-normal text-sm text-gray-600">{{this.description}}</p>
+                            <div class="space-x-1 pt-2 text-xs text-gray-600">
+                              {{#each this.tech_use}}
+                                 <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">{{this}}</span>
+                              {{/each}}
                             </div>
                             <div>
                                 <div class="flex space-x-4 mt-5 ms-3  text-xs">
-                                <a target="_blank" href="https://wa.me/6283891495814" class="flex items-center text-gray-600 py-3">
+                                <a target="_blank" href="{{ this.link_github }}" class="flex items-center text-gray-600 py-3">
                                   <img class="" src="assets/icon/github.png" alt="" width="20px" />
                                   &nbsp Private Repository
                                 </a>
-                                <a href="" class="flex items-center text-blue-600 hover:text-blue-800 rounded-lg py-3">
+                                <a href="{{ this.link_demo }}" target="_blank" class="flex items-center text-blue-600 hover:text-blue-800 rounded-lg py-3">
                                   <img src="assets/icon/link-blue.png" alt="" class="flex" width="20px" height="15px" />
                                   &nbsp Live Demo
                                 </a>
@@ -193,7 +193,9 @@
                             </div>
                 </div>
             </div>
-            <!-- Nimalis -->
+          {{/each}}
+
+            {{!-- <!-- Nimalis -->
               <div class="bg-white rounded-xl shadow-xs hover:shadow-md mt-15">
               <div class="bg-gray-100 justify-center flex rounded-t-xl">
                 <a href="#">
@@ -372,7 +374,7 @@
                               </div>
                             </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
       </section>
     <!--Project Session End -->

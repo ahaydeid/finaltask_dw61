@@ -5,7 +5,7 @@ import { login } from "../controllers/loginController.js";
 import { register, handleRegister } from "../controllers/registerController.js";
 import { manageStack, stackHandler, editStack, updateStack, deleteStack, upload } from "../controllers/stackController.js";
 import { manageExperience, addExperience, experienceHandler, deleteExperience, upload2 } from "../controllers/experienceController.js";
-import { manageProject, addProject } from "../controllers/projectController.js";
+import { manageProject, addProject, deleteProject } from "../controllers/projectController.js";
 
 const router = express.Router();
 
@@ -33,5 +33,6 @@ router.post("/delete-experience/:id", deleteExperience);
 // MANAGE PROJECT
 router.get("/manageproject", manageProject);
 router.get("/addproject", addProject);
+router.post("/delete-project/:id", deleteProject);
 
 export default router;

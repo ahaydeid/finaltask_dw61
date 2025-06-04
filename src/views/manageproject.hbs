@@ -28,20 +28,25 @@ table, th, td {
                 <th class="">Image</th> 
                 <th class="">Action</th>
             </tr>
+              {{#each hasilproject }}
             <tr class="">
-                <td class="text-center">1</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">Fakturly</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[150px]">Digital Invoice blaa.. blaa...</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[150px]">JavaScript, React, Node.js, Express, PostgreSQL</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[20px]">https://github.io</td>
-                <td class="truncate whitespace-nowrap overflow-hidden max-w-[50px]">https://demo.fakturly.com</td>
-                <td class=""><img src="../assets/icon/account.png" class="w-10" alt=""></td>
+                <td class="text-center">{{ increment @index }}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">{{this.name}}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[150px]">{{this.description}}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[150px]">{{this.tech_use}}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[20px]">{{this.link_github}}</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[50px]">{{this.link_demo}}</td>
+                <td class=""><img src="../../uploads/project/{{ this.image }}" class="w-10" alt=""></td>
                 <td class="text-center truncate whitespace-nowrap overflow-hidden max-w-[150px]">
+                  <a href="/">
                     <button class="px-3 bg-yellow-500 m-1 text-white cursor-pointer">Edit</button>
+                  </a>
+                  <form action="/delete-project/{{ this.id }}" method="post"  onsubmit="return confirm('Yakin mau dihapus?')">
                     <button  class="px-3 bg-red-700 m-1 text-white cursor-pointer">Delete</button>
+                  </form>
                 </td>
             </tr>
-            </tr>
+              {{/each}}
             </table>
             </div>
 

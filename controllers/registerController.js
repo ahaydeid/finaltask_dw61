@@ -30,7 +30,7 @@ export const registerHandler = async (req, res) => {
   const hashedPassword = await bcrypt.hash(password, 10);
   if (password !== confirmPassword) {
     console.log("Password dan confirmnya beda");
-    return res.status(400).send("Password dan konfirmasi gak sama, bro. 😒");
+    return res.send("Password dan konfirmasi gak sama, bro. 😒");
   }
   try {
     const sql = `INSERT INTO public.user (name, email, password, foto) VALUES ('${name}', '${email}', '${hashedPassword}', '${foto}')`;
@@ -38,6 +38,6 @@ export const registerHandler = async (req, res) => {
     res.redirect("/login");
   } catch (error) {
     console.error("Gagal insert ke database:", error);
-    res.status(500).send("Ada kesalahan");
+    res.send("Ada kesalahan");
   }
 };

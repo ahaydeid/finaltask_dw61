@@ -1,7 +1,7 @@
 import express from "express";
 import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
-import { ensureAuthenticated } from "../middleware/auth.js";
+import { ensureAuthenticated } from "../auth/auth.js";
 import { login, logout, handleLogin } from "../controllers/loginController.js";
 import { register, registerHandler, upload4 } from "../controllers/registerController.js";
 import { manageStack, stackHandler, editStack, updateStack, deleteStack, upload } from "../controllers/stackController.js";

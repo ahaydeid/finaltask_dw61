@@ -69,38 +69,36 @@
     <!-- Experience Session Start -->
     <section id="experience" class="pt-40">
       <h1 class="font-bold text-3xl">Work Experience:</h1>
+      {{#each hasilexperience}}
       <!-- Experience 1 Start-->
       <div class="card mt-20 ps-10 flex justify-between  mb-20">
         <div class="flex">
-        <img src="assets/img/logo-dumbways.png" alt="" class="w-16 h-12 me-10 mt-3">
+        <img src="../../uploads/experience/{{ this.image }}" alt="" class="w-16 h-12 me-10 mt-3">
           <div class="desc">
-          <span class="text-xl font-bold">Mentor Full Stack Web Developer</span>
-          <h6 class="text-green-500 mb-3">DumbWays Indonesia</h6>
+          <span class="text-xl font-bold">{{this.tittle}}</span>
+          <h6 class="text-green-500 mb-3">{{this.company}}</h6>
           <div class="job text-base text-gray-600">
-            <li class="">Mentoring student in Full Stack Development Bootcamp</li>
-            <li class="">Teaching JavaScript, React, Node.js, and related technologies</li>
-            <li class="">Providing code reviews and technical guidance</li>
-            <li class="">Developing curriculum and learning materials</li>
-            <li class="">Conducting technical interviews and assessments</li>
+            {{#each this.jobdesc}}
+            <li class="">{{this}}</li>
+            {{/each}}
           </div>
           <div class="space-x-1 pt-5 text-sm text-gray-700">
-            <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">JavaScript</span>
-            <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">React</span>
-            <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">Node.js</span>
-            <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">Express</span>
-            <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">PostgreSQL</span>
+            {{#each this.tech_use}}
+            <span class="px-3 py-0.5 bg-slate-100 rounded-2xl">{{this}}</span>
+            {{/each}}
           </div>
         </div>
       </div>
         <div>
           <h1 class="text-gray-600">  
-            Oct 2022 - Present
+            {{this.start_date_formatted}} - {{this.end_date_formatted}}
           </h1>
         </div>
       </div>
+      {{/each}}
       <!-- Experience 1 End-->
 
-      <!-- Experience 2 Start-->
+      {{!-- <!-- Experience 2 Start-->
         <div class="card mt-20 ps-10 flex justify-between  mb-20">
         <div class="flex">
         <img src="assets/img/lezzcode.png" alt="" class="w-16 h-16 me-10">
@@ -156,9 +154,10 @@
           </h1>
         </div>
       </div>
-      <!-- Experience 3 End-->
+      <!-- Experience 3 End--> --}}
     </section>
     <!-- Experience Session End -->
+
 
     <!--Project Session Start -->
       <section id="my-project" class="pt-30">

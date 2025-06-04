@@ -30,7 +30,7 @@ table, th, td {
                 <th class="">Action</th>
             </tr>
             <tr class="">
-              {{#each hasil }}
+              {{#each hasilexperience }}
                 <td class="text-center">1</td>
                 <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">{{ this.tittle }}</td>
                 <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">{{ this.company }}</td>
@@ -50,25 +50,7 @@ table, th, td {
             </tr>
               {{/each}}
             </table>
-              {{#each hasil}}
-                <div>
-                  <h3>{{this.tittle}}</h3>
-                  <p>{{this.company}}</p>
-                  <p>{{this.start_date}}</p>
-                  <p>{{this.end_date}}</p>
-                  <img class="w-50" src="../../uploads/experience/{{this.image}}" alt="">
-
-                  <div>
-                    <strong>Tech Stacks:</strong>
-                    {{#each this.tech_use}}
-                      <p>{{this}}</p>
-                    {{/each}}
-                  </div>
-                </div><br>
-              {{/each}}
-
             </div>
-
 
     {{> footer}}
 </body>

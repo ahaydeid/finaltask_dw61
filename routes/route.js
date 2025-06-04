@@ -1,5 +1,4 @@
 import express from "express";
-import multer from "multer";
 import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { login } from "../controllers/loginController.js";

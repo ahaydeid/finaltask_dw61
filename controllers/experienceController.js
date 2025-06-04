@@ -4,15 +4,21 @@ import path from "path";
 
 export const manageExperience = async (req, res) => {
   const result = await db.query("SELECT * FROM experience ORDER BY id DESC");
-  const data = result.rows.map(item => ({
+  const data = result.rows.map((item) => ({
     ...item,
-    tech_use: item.tech_use || [] // jaga-jaga kalau null
+    tech_use: item.tech_use || [],
+    jobdesc: item.jobdesc || [], // jaga-jaga kalau null
+    start_date_formatted: new Date(item.start_date).toLocaleDateString("en-US", {
+      month: "short",
+      year: "numeric",
+    }),
+    end_date_formatted: new Date(item.end_date).toLocaleDateString("en-US", {
+      month: "short",
+      year: "numeric",
+    }),
   }));
-  res.render("manageexperience", { hasil: data });
+  res.render("manageexperience", { hasilexperience: data });
 };
-
-
-
 
 export const addExperience = async (req, res) => {
   res.render("addexperience");

@@ -37,7 +37,7 @@ table, th, td {
                   <a href="/editstack/{{ this.id }}">
                     <button class="px-3 bg-yellow-500 m-1 text-white cursor-pointer">Edit</button>
                   </a>
-                  <form method="post" action="/delete/{{ this.id }}" onsubmit="return confirm('Yakin mau dihapus?')">
+                  <form method="post" action="/delete-stack/{{ this.id }}" onsubmit="return confirm('Yakin mau dihapus?')">
                     <button type="submit" class="px-3 bg-red-700 m-1 text-white cursor-pointer">Delete</button>
                   </form>
                 </td>

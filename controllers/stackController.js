@@ -2,7 +2,7 @@ import db from "../model/connection.js";
 
 export const manageStack = async (req, res) => {
   const data = await db.query("SELECT * FROM techstack ORDER BY id ASC");
-  res.render("manageStack", { hasil: data.rows });
+  res.render("managestack", { hasil: data.rows });
 };
 
 export const stackHandler = async (req, res) => {

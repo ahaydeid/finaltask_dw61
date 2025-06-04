@@ -13,32 +13,32 @@ table, th, td {
     {{> navbarAdmin}}
 
     <h1 class="text-black mt-[100px] flex justify-center text-3xl font-bold">MANAGE EXPERIENCE</h1>
-    <div class="container w-6xl ms-3 p-5 bg-white mt-20  justify-self-center">
-      <form action="" class="bg-white h-20 flex items-center mb-3">
-        <button class="bg-blue-500 h-10 flex py-2 px-3 font-bold ms-3 text-white rounded-2xl">Add Experience +</button>
-      </form>
+    <div class="container w-6xl ms-3 p-10 bg-white mt-20  justify-self-center">
+      <a  href="/addexperience" class="bg-white h-20 flex items-center mb-3">
+        <button class="bg-blue-500 hover:bg-blue-700 h-10 flex py-2 px-3 font-bold ms-3 text-white rounded-2xl cursor-pointer">Add Experience +</button>
+      </a>
             <table class="w-full">
-            <tr>
-                <th class="w-[20px]">No.</th>
-                <th class="w-[100px]">Tittle</th>
-                <th class="w-[100px]">Company</th> 
-                <th class="w-[150px]">Job Desc</th> 
-                <th class="w-[150px]">Tech Use</th> 
-                <th class="w-[20px]">Start Date</th> 
-                <th class="w-[10px]">End Date</th> 
-                <th class="w-[50px]">Image</th> 
-                <th class="w-[150px]">Action</th>
+            <tr class="h-10">
+                <th class="">No.</th>
+                <th class="">Tittle</th>
+                <th class="">Company</th> 
+                <th class="">Job Desc</th> 
+                <th class="">Tech Use</th> 
+                <th class="">Start Date</th> 
+                <th class="">End Date</th> 
+                <th class="">Image</th> 
+                <th class="">Action</th>
             </tr>
             <tr class="">
                 <td class="text-center">1</td>
-                <td class="">Mentor Full Stack Web Developer</td>
-                <td class="">DumbWays Indonesia</td>
-                <td class="">Mentoring student in Full Stack Development Bootcamp</td>
-                <td class="">JavaScript, React, Node.js, Express, PostgreSQL</td>
-                <td class="">11/2020</td>
-                <td class="">11/2024</td>
-                <td class=""><img src="../assets/icon/account.png" class="w-10" alt=""></td>
-                <td class="text-center">
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">Mentor Full Stack Web Developer</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[100px]">DumbWays Indonesia</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[150px]">Mentoring student in Full Stack Development Bootcamp</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[150px]">JavaScript, React, Node.js, Express, PostgreSQL</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[60px]">11/2020</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[60px]">11/2024</td>
+                <td class="truncate whitespace-nowrap overflow-hidden max-w-[50px]"><img src="../assets/icon/account.png" class="w-10" alt=""></td>
+                <td class="text-center max-w[100px]">
                     <button class="px-3 bg-yellow-500 m-1 text-white">Edit</button>
                     <button  class="px-3 bg-red-700 m-1 text-white">Delete</button>
                 </td>

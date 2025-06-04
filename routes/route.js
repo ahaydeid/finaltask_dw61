@@ -1,13 +1,12 @@
 import express from "express";
 import multer from "multer";
-import path from "path";
 import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { login } from "../controllers/loginController.js";
 import { register, handleRegister } from "../controllers/registerController.js";
 import { manageStack, stackHandler } from "../controllers/stackController.js";
 import { manageExperience, addExperience } from "../controllers/experienceController.js";
-import { manageProject } from "../controllers/projectController.js";
+import { manageProject, addProject } from "../controllers/projectController.js";
 
 const router = express.Router();
 
@@ -35,6 +34,7 @@ router.get("/manageexperience", manageExperience);
 router.get("/addexperience", addExperience);
 
 router.get("/manageproject", manageProject);
+router.get("/addproject", addProject);
 
 // Sementara untuk keperluan desain UI nya dulu
 router.get("/dashboard", dashboard);

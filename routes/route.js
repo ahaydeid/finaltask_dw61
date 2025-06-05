@@ -3,7 +3,7 @@ import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { logged } from "../auth/auth.js";
 import { login, logout, handleLogin } from "../controllers/loginController.js";
-import { register, registerHandler, upload4 } from "../controllers/registerController.js";
+import { register, registerHandler, upload4, editProfile } from "../controllers/profileController.js";
 import { manageStack, stackHandler, editStack, updateStack, deleteStack, upload } from "../controllers/stackController.js";
 import { manageExperience, addExperience, experienceHandler, deleteExperience, upload2, editExperience } from "../controllers/experienceController.js";
 import { manageProject, addProject, deleteProject, projectHandler, upload3 } from "../controllers/projectController.js";
@@ -21,6 +21,10 @@ router.get("/logout", logout);
 // MANAGE REGISTER
 router.get("/register", register);
 router.post("/register", upload4.single("profile-photo"), registerHandler);
+
+// EDIT PROFILE
+router.get("/editprofile", logged, editProfile);
+router.post("/editprofile", logged, editProfile);
 
 // TO DASHBOARD MUST BE LOGIN
 router.get("/dashboard", logged, dashboard);

@@ -13,7 +13,7 @@ export function logout(req, res) {
 
 export const handleLogin = async (req, res) => {
   const { email, password } = req.body;
-  const isRegistered = await db.query(`SELECT * FROM public.user WHERE email='${email}'`);
+  const isRegistered = await db.query(`SELECT * FROM public.users WHERE email='${email}'`);
   const isMatch = await bcrypt.compare(password, isRegistered.rows[0].password);
   if (!isMatch) {
     req.flash("error", "password salah");

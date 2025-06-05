@@ -41,3 +41,26 @@ export const registerHandler = async (req, res) => {
     res.send("Ada kesalahan");
   }
 };
+
+// ======== ALIHKAN KE HALAMAN UPDATE ======== //
+
+// ======== UPDATE DATA ======== //
+export const editProfile = async (req, res) => {
+  res.render("editprofile");
+};
+
+export const updateStack = async (req, res) => {
+  const foto = req.file ? req.file.filename : null;
+  const { id, name_stack } = req.body;
+
+  let sql = "";
+  if (req.file) {
+    const foto = req.file.filename;
+    sql = `UPDATE techstack SET icon_tech = '${foto}', name_tech = '${name_stack}' WHERE id='${id}'`;
+  } else {
+    sql = `UPDATE techstack SET name_tech = '${name_stack}' WHERE id='${id}'`;
+  }
+  await db.query(sql);
+  // console.log({ foto, name_stack });
+  res.redirect("/managestack");
+};

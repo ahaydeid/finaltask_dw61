@@ -27,5 +27,5 @@ hbs.registerPartials("src/views/partials");
 
 app.listen(port, () => {
   console.log(`App running on port ${port}`);
-  console.log(`http://localhost:3000/addproject`);
+  console.log(`http://localhost:3000`);
 });

@@ -1,11 +1,35 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    {{> head }}
+  </head>
+  <body class="bg-blue-50">
+    {{> navbarAdmin }}
+
+      <h1 class="text-black mt-[100px] flex justify-center text-3xl font-bold">ADMIN DASHBOARD</h1>
+      <h3 class="font-bold text-2xl mt-10 mb-5 flex justify-center">Summary:</h3>
+      <div class="container flex justify-center">
+        <div class="summary flex">
+          <a href="/manageStack">
+          <div class="card p-3 w-50 h-50 text-white font-semibold bg-green-500 ms-3 my-1 py-1 px-3 rounded-xl">
+            <span class="mt-5">Stacks: </span><br>
+            <span class="text-5xl flex justify-center mt-10">{{stack}}</span>
+          </div>
+          </a>
+          <a href="/manageexperience">
+          <div class="card p-3 w-50 h-50 text-white font-semibold bg-cyan-500 ms-3 my-1 py-1 px-3 rounded-xl">
+            <span class="mt-5">Experiences: </span><br>
+            <span class="text-5xl flex justify-center mt-10">{{experience}}</span>
+          </div>
+          </a>
+          <a href="/manageproject">
+          <div class="card p-3 w-50 h-50 text-white font-semibold bg-pink-500 ms-3 my-1 py-1 px-3 rounded-xl">
+            <span class="mt-5">Projects: </span><br>
+            <span class="text-5xl flex justify-center mt-10">{{project}}</span>
+          </div>
+          </a>
+          </div>
+      </div>
+
+    {{> footer }}
+  </body>
 </html>

@@ -3,8 +3,8 @@ import multer from "multer";
 import path from "path";
 import bcrypt from "bcrypt";
 
-export function register(req, res) {
-  res.render("register", { message: req.flash("error") });
+export function registerProfile(req, res) {
+  res.render("register");
 }
 
 // ======== CREATE DATA ======== //
@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 });
 export const upload4 = multer({ storage: storage });
 
-export const registerHandler = async (req, res) => {
+export const registerProfileHandler = async (req, res) => {
   const foto = req.file ? req.file.filename : null;
   const { name, email, password, confirmPassword } = req.body;
   const isRegistered = await db.query(`SELECT * FROM public.user WHERE email='${email}'`);
@@ -43,10 +43,13 @@ export const registerHandler = async (req, res) => {
 };
 
 // ======== ALIHKAN KE HALAMAN UPDATE ======== //
-
-// ======== UPDATE DATA ======== //
 export const editProfile = async (req, res) => {
   res.render("editprofile");
+};
+
+// ======== UPDATE DATA ======== //
+export const submitEditProfile = async (req, res) => {
+  //   res.render("editprofile");
 };
 
 export const updateStack = async (req, res) => {
@@ -63,4 +66,18 @@ export const updateStack = async (req, res) => {
   await db.query(sql);
   // console.log({ foto, name_stack });
   res.redirect("/managestack");
+};
+
+export const profile = async (req, res) => {
+  const userData = req.session.user; // isinya: name, email, foto
+  const dataStack = await db.query("SELECT * FROM techstack");
+  const dataExperience = await db.query("SELECT * FROM experience");
+  const dataProject = await db.query("SELECT * FROM project");
+  // res.render("profile", userData);
+  res.render("profile", {
+    user: userData,
+    stack: dataStack.rows.length,
+    experience: dataExperience.rows.length,
+    project: dataProject.rows.length,
+  });
 };

@@ -32,8 +32,10 @@ export const stackHandler = async (req, res) => {
 // ======== ALIHKAN KE HALAMAN EDIT ======== //
 export const editStack = async (req, res) => {
   const id = req.params.id;
+  // Query dibawah ini mengembalikan dalam bentuk array, walaupun isi arraynya hanya 1 object.
+  // Tapi berhubung yang akan diambil adalah isi objectnya maka harus pakai [0] untuk mengarahkan pada object yang ada (yang mana di sini object index 0 atau pertama/1)
   const data = await db.query(`SELECT * FROM techstack WHERE id='${id}'`);
-  // console.log(data);
+  // console.log(data.rows[0]);
 
   res.render("editstack", { hasil: data.rows[0] });
 };

@@ -24,5 +24,5 @@ export const handleLogin = async (req, res) => {
     email: isRegistered.rows[0].email,
     foto: isRegistered.rows[0].foto,
   };
-  res.redirect("/dashboard");
+  res.redirect("/profile");
 };

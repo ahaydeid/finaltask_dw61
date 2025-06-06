@@ -2,8 +2,8 @@ import express from "express";
 import { home } from "../controllers/homeController.js";
 import { dashboard } from "../controllers/dashboardController.js";
 import { logged } from "../auth/auth.js";
+import { registerProfile, registerProfileHandler, upload4, profile, editProfile, submitEditProfile } from "../controllers/profileController.js";
 import { login, logout, handleLogin } from "../controllers/loginController.js";
-import { register, registerHandler, upload4, editProfile } from "../controllers/profileController.js";
 import { manageStack, stackHandler, editStack, updateStack, deleteStack, upload } from "../controllers/stackController.js";
 import { manageExperience, addExperience, experienceHandler, deleteExperience, upload2, editExperience } from "../controllers/experienceController.js";
 import { manageProject, addProject, deleteProject, projectHandler, upload3 } from "../controllers/projectController.js";
@@ -18,13 +18,12 @@ router.post("/login", handleLogin);
 
 router.get("/logout", logout);
 
-// MANAGE REGISTER
-router.get("/register", register);
-router.post("/register", upload4.single("profile-photo"), registerHandler);
-
-// EDIT PROFILE
+// MANAGE PROFILE
+router.get("/register", registerProfile);
+router.post("/register", upload4.single("profile-photo"), registerProfileHandler);
+router.get("/profile", logged, profile);
 router.get("/editprofile", logged, editProfile);
-router.post("/editprofile", logged, editProfile);
+router.post("/editprofile", submitEditProfile);
 
 // TO DASHBOARD MUST BE LOGIN
 router.get("/dashboard", logged, dashboard);

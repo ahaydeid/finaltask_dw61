@@ -1,6 +1,5 @@
 import express from "express";
 import { home } from "../controllers/homeController.js";
-import { dashboard } from "../controllers/dashboardController.js";
 import { logged } from "../auth/auth.js";
 import { registerProfile, registerProfileHandler, upload4, profile, editProfile, submitEditProfile } from "../controllers/profileController.js";
 import { login, logout, handleLogin } from "../controllers/loginController.js";
@@ -24,9 +23,6 @@ router.post("/register", upload4.single("profile-photo"), registerProfileHandler
 router.get("/profile", logged, profile);
 router.get("/editprofile", logged, editProfile);
 router.post("/editprofile", submitEditProfile);
-
-// TO DASHBOARD MUST BE LOGIN
-router.get("/dashboard", logged, dashboard);
 
 // MANAGE TECH STACK
 router.get("/managestack", logged, manageStack);

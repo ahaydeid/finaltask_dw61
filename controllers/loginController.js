@@ -19,10 +19,17 @@ export const handleLogin = async (req, res) => {
     req.flash("error", "password salah");
     return res.redirect("/login");
   }
+  // Ketika berhasil login, maka akan membuat session yang berisi informasi dibawah ini, isi informasinya bisa disesuaikan berdasarkan kebutuhan
   req.session.user = {
+    userId: isRegistered.rows[0].id,
     name: isRegistered.rows[0].name,
     email: isRegistered.rows[0].email,
     foto: isRegistered.rows[0].foto,
+    title: isRegistered.rows[0].title,
+    description: isRegistered.rows[0].description,
+    location: isRegistered.rows[0].location,
+    contact: isRegistered.rows[0].contact,
+    cv: isRegistered.rows[0].cv,
   };
   res.redirect("/profile");
 };

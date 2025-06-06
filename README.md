@@ -1,0 +1,1 @@
+"req.session.user" adalah keyword yang berisi sesi yang mana sesi tersebut didapat dari hasil berhasil login (dilihat di loginController.js), bawaan dari express-session adalah "req. session" dan user adalah nama session yang dibuat "Namanya bebas aja suka-suka"

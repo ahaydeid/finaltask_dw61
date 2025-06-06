@@ -6,10 +6,12 @@ import db from "../model/connection.js";
 // };
 
 export const home = async (req, res) => {
+  // const userId
+  const userID = req.session.user.userId;
   try {
-    const techData = await db.query(`SELECT * FROM public.techstack ORDER BY id ASC`);
-    const expResult = await db.query("SELECT * FROM experience ORDER BY id DESC");
-    const proResult = await db.query("SELECT * FROM project ORDER BY id DESC");
+    const techResult = await db.query(`SELECT * FROM public.techstack WHERE user_id = '${userID}'`);
+    const expResult = await db.query(`SELECT * FROM experience WHERE user_id = '${userID}'`);
+    const proResult = await db.query(`SELECT * FROM project WHERE user_id = '${userID}'`);
 
     const experienceData = expResult.rows.map((item) => ({
       ...item,
@@ -31,7 +33,7 @@ export const home = async (req, res) => {
     }));
 
     res.render("index", {
-      hasil: techData.rows, // untuk tabel techstack
+      hasil: techResult.rows, // untuk tabel techstack
       hasilexperience: experienceData, // untuk tabel experience
       hasilproject: projectData, // untuk tabel project
     });

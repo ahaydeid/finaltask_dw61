@@ -52,27 +52,28 @@ export const submitEditProfile = async (req, res) => {
   //   res.render("editprofile");
 };
 
-export const updateStack = async (req, res) => {
-  const foto = req.file ? req.file.filename : null;
-  const { id, name_stack } = req.body;
+// export const updateStack = async (req, res) => {
+//   const foto = req.file ? req.file.filename : null;
+//   const { id, name_stack } = req.body;
 
-  let sql = "";
-  if (req.file) {
-    const foto = req.file.filename;
-    sql = `UPDATE techstack SET icon_tech = '${foto}', name_tech = '${name_stack}' WHERE id='${id}'`;
-  } else {
-    sql = `UPDATE techstack SET name_tech = '${name_stack}' WHERE id='${id}'`;
-  }
-  await db.query(sql);
-  // console.log({ foto, name_stack });
-  res.redirect("/managestack");
-};
+//   let sql = "";
+//   if (req.file) {
+//     const foto = req.file.filename;
+//     sql = `UPDATE techstack SET icon_tech = '${foto}', name_tech = '${name_stack}' WHERE id='${id}'`;
+//   } else {
+//     sql = `UPDATE techstack SET name_tech = '${name_stack}' WHERE id='${id}'`;
+//   }
+//   await db.query(sql);
+//   // console.log({ foto, name_stack });
+//   res.redirect("/managestack");
+// };
 
 export const profile = async (req, res) => {
-  const userData = req.session.user; // isinya: name, email, foto
-  const dataStack = await db.query("SELECT * FROM techstack");
-  const dataExperience = await db.query("SELECT * FROM experience");
-  const dataProject = await db.query("SELECT * FROM project");
+  const userData = req.session.user; // isinya: id, name, email, foto
+  const userID = req.session.user.userId; // Spesifik untuk mengambil id nya user agar value integer (bukan object)
+  const dataStack = await db.query(`SELECT * FROM techstack WHERE user_id = '${userID}'`);
+  const dataExperience = await db.query(`SELECT * FROM experience WHERE user_id = '${userID}'`);
+  const dataProject = await db.query(`SELECT * FROM project WHERE user_id = '${userID}'`);
   // res.render("profile", userData);
   res.render("profile", {
     user: userData,

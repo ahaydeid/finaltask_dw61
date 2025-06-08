@@ -17,8 +17,8 @@ app.use(
     saveUninitialized: true,
   })
 );
-app.use(flash());
 app.use(router);
+app.use(flash());
 app.use("/assets", express.static("src/assets"));
 app.use("/uploads", express.static("uploads"));
 //membuat nomor index menjadi increment
